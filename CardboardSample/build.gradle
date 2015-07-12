@@ -17,8 +17,8 @@
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion '19.1.0'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         minSdkVersion 16
@@ -28,8 +28,19 @@ android {
     }
 
     lintOptions.abortOnError false
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.snapback.sdk:sdk-debug@aar'
+
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.google.android.gms:play-services:7.5.0';
+
 }
